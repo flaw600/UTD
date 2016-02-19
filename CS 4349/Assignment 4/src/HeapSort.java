@@ -8,23 +8,23 @@ public class HeapSort {
 		// TODO Auto-generated method stub
 		Scanner in = new Scanner(System.in);
 		int[] mainArray = null;
-		System.out.println("Pick an option and enter in the number. 1) Random array 2) Best case 3) Worst Case");
+		System.out.println("Pick an option and enter in the number. 1) Random array 2) Best case 3) Worst Case ");
 		int input = in.nextInt();
 		switch(input) {
 		case 1:
-			System.out.println("What size? 1) 100 2) 1000 3) 10000");
+			System.out.println("What size? 100, 1000, 10000? Enter the number: ");
 			int input2 = in.nextInt();
-			if (input2==1) {
-				mainArray = new int[100];
-			} else if (input2==2) {
-				mainArray = new int[1000];
-			} else {
-				mainArray = new int[10000];
-			}
+			mainArray = new int[input2];
+			System.out.println(input2);
+			break;
 		case 2:
 			mainArray = new int[100]; //fix later; best case
+			break;
 		case 3:
 			mainArray = new int[100]; //fix later; worst case
+			break;
+		default:
+			break;
 		}
 		if (input==1) {
 			 Random rand = new Random();
