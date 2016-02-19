@@ -22,18 +22,18 @@ public class HeapSort {
 				mainArray = new int[10000];
 			}
 		case 2:
-			mainArray = new int[100]; //fix later
+			mainArray = new int[100]; //fix later; best case
 		case 3:
-			mainArray = new int[100]; //fix later
+			mainArray = new int[100]; //fix later; worst case
 		}
 		if (input==1) {
 			 Random rand = new Random();
 		        for (int i = 0; i< mainArray.length; i++)
-		            mainArray[i] = rand.nextInt();
+		            mainArray[i] = rand.nextInt(100);
 		}
 		System.out.println("Old array: " + Arrays.toString(mainArray));
         long startTime = System.nanoTime();
-        heapSort(mainArray, mainArray.length); //ask
+        heapSort(mainArray, mainArray.length-1);
         long endTime = System.nanoTime();
         float finalTime = (((float) (endTime-startTime)) / ((float) 1000000000));
         System.out.println("Sorted array: " + Arrays.toString(mainArray));
@@ -45,9 +45,9 @@ public class HeapSort {
 		// TODO Auto-generated method stub
 		buildMaxHeap(arr, n);
 		
-		for (int i = n; i>1; i--) {
-			exchange(arr, arr[1], arr[i]);
-			maxHeapify(arr, 1, i-1);
+		for (int i = n; i>0; i--) {
+			exchange(arr, 0, i);
+			maxHeapify(arr, 0, i-1);
 		}
 	}
 
@@ -68,7 +68,7 @@ public class HeapSort {
 		}
 		
 		if (largest!=i) {
-			exchange(arr, arr[i], arr[largest]);
+			exchange(arr, i, largest);
 			maxHeapify(arr, largest, n);
 		}
 	}
@@ -82,7 +82,7 @@ public class HeapSort {
 
 	private static void buildMaxHeap(int[] arr, int n) {
 		// TODO Auto-generated method stub
-		for (int i = n/2; i>0; i--) {
+		for (int i = n/2; i>=0; i--) {
 			maxHeapify(arr, i, n);
 		}
 	}
