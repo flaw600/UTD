@@ -15,13 +15,16 @@ public class HeapSort {
 			System.out.println("What size? 100, 1000, 10000? Enter the number: ");
 			int input2 = in.nextInt();
 			mainArray = new int[input2];
-			System.out.println(input2);
 			break;
 		case 2:
 			mainArray = new int[100]; //fix later; best case
+			for (int i = 0; i< mainArray.length; i++)
+	            mainArray[i] = 100-i;
 			break;
 		case 3:
-			mainArray = new int[100]; //fix later; worst case
+			mainArray = new int[100];
+			for (int i = 0; i< mainArray.length; i++)
+	            mainArray[i] = i+1;
 			break;
 		default:
 			break;
